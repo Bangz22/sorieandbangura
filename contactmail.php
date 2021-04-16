@@ -1,6 +1,6 @@
 <?php
 
-$EmailTo = "khalil.bangz@gmail.com";
+$EmailTo = "info@sorieandbangura.com";
 $Subject = "New Message Received From S&B Law Firm";
 
 $errorMSG = "";
@@ -53,7 +53,7 @@ if($name && $email && $message){
 
 
 if ($success && $errorMSG == ""){
-   echo echo "<h1>Sent Successfully! Thank you"." ".$name.", We will contact you shortly!</h1>";
+   echo "<h1>Sent Successfully! Thank you"." ".$name.", We will contact you shortly!</h1>";
 }else{
     if($errorMSG == ""){
         echo "Something went wrong :(";

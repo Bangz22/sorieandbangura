@@ -1,7 +1,7 @@
 <?php
 
-$EmailTo = "bangz.ibrahim@gmail.com";
-$Subject = "New Message Received";
+$EmailTo = "info@sorieandbangura.com";
+$Subject = "New Message Received from Sorie and Bangura Law Firm";
 
 $errorMSG = "";
 $name = $email = $message = null;
