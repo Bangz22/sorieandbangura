@@ -4,7 +4,7 @@ $EmailTo = "info@sorieandbangura.com";
 $Subject = "New Message Received from Sorie and Bangura Law Firm";
 
 $errorMSG = "";
-$name = $email = $message = null;
+$name = $email = $phone = $case = $message = null;
 
 // NAME
 if (empty($_POST["name"])) {
@@ -21,6 +21,20 @@ if (empty($_POST["email"])) {
     $email = $_POST["email"];
 }
 
+// PHONE
+if (empty($_POST["phone"])) {
+    $errorMSG = "Phone No. is required ";
+} else {
+    $phone = $_POST["phone"];
+}
+
+// CASE
+if (empty($_POST["case"])) {
+    $errorMSG = "Case type is required ";
+} else {
+    $case = $_POST["case"];
+}
+
 // MESSAGE
 
 if (empty($_POST["message"])) {
@@ -34,6 +48,8 @@ if (empty($_POST["message"])) {
 $Body = null;
 $Body .= "<p><b>Name:</b> {$name}</p>";
 $Body .= "<p><b>Email:</b> {$email}</p>";
+$Body .= "<p><b>Phone No.:</b> {$phone}</p>";
+$Body .= "<p><b>Case:</b> {$case}</p>";
 $Body .= "<p><b>Message:</b> </p><p>{$message}</p>";
 
  
@@ -45,7 +61,7 @@ $headers .= 'From:  ' . $name . ' <' . $email .'>' . " \r\n" .
             'Reply-To: '.  $fromEmail . "\r\n" .
             'X-Mailer: PHP/' . phpversion();
 
-if($name && $email && $message){
+if($name && $email && $phone && $case && $message){
     $success = mail($EmailTo, $Subject, $Body, $headers );
 }else{
     $success = false;
@@ -61,3 +77,4 @@ if ($success && $errorMSG == ""){
         echo $errorMSG;
     }
 } 
+?>
